@@ -1,18 +1,30 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 import requests, json
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status
+
+from .forms import RegisterForm
 
 # Create your views here.
+
 def home(request):
+    return render(request, 'html-static/index.html')
 
-    response = requests.get("http://www.boredapi.com/api/activity/")
-    #data = json.loads(response)
-    # create a formatted string of the Python JSON object
-    text = json.dumps(response.json(), sort_keys=True, indent=4)
-    text_1 = json.loads(text)
-    
-    if "activity" in text_1:
-        print(True)
+
+def register(response):
+
+    if response.method == "POST":
+        form = RegisterForm(response.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/activity")
+
     else:
-        print(False)
+        form = RegisterForm()
 
-    return render(request, 'html-static/index.html', {'result': text_1["type"]})
+    return render(response, 'html-static/register.html', {'form': form})
+
+
+def activity(request):
+    return render(request, 'html-static/activities_home.html')

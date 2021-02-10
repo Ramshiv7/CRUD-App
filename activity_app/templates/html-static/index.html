@@ -1,71 +1,9 @@
-{% load static  %}
-<html>
+{% load static %}
 
-<head>
+<h2>Welcome </h2>
 
-    <title>
-        CRUD App
-    </title>
+<br>
+<br>
+<br>
 
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
-</head>
-
-<body>
-    <div>
-    <center>
-    <form action="">
-        <label >Register Here </label>
-        <br>
-    
-        
-        <table cellspacing="10px">
-            <tr>
-                <td><label > E-mail </label></td>
-                <TD><input type="text"> </TD>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td> <input type="password" name="pwd" > </td>
-            </tr>
-            <tr>
-                <td>
-                    Activity   
-                </td>
-                <td>
-                <select name="activity">
-                    <optgroup label="Activities">
-                        <option value="education">Education</option>
-                        <option value="recreational">Recreational</option>
-                        <option value="social">Social</option>
-                        <option value="diy">Diy</option>
-                        <option value="charity">Charity</option>
-                        <option value="cooking">Cooking</option>
-                        <option value="relaxation">Relaxation</option>
-                        <option value="music">Music</option>
-                        <option value="busywork">Busywork</option>
-                    </optgroup>
-                </select>
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><input type="submit" value="Register"></td>
-            </tr>     
-                <br>
-           <br>
-    </form>
-</center>
-</table>
-</div>
-
-
-{{ result }}
-
-</body>
-
-
-</html>
-
-
-
+<a href="{% static 'html-static/register.html' %}">Register</a>

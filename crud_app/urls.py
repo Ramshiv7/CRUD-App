@@ -18,6 +18,7 @@ from django.urls import path
 from activity_app import views
 
 urlpatterns = [
-    path('', views.home),
+    path('', views.register, name='register'),
+    path('activity/', views.activity, name='activity'),
     path('admin/', admin.site.urls),
 ]
